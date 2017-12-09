@@ -10,6 +10,10 @@ class Chain
         $this->blocks[] = $block;
     }
 
+    public function getBlock($index){
+        return $this->blocks[$index];
+    }
+
     public function isValid(){
         $previousHash = null;
         $previousIndex = -1;
