@@ -1,17 +1,32 @@
 <?php
 namespace Blockchain;
 
-
+/**
+ * Class Block
+ * @package Blockchain
+ */
 class Block
 {
+    /** @var integer */
     private $index;
 
+    /** @var string */
     private $previousHash;
 
+    /** @var integer */
     private $timestamp;
 
+    /** @var mixed */
     private $data;
 
+
+    /**
+     * Block constructor.
+     * @param $index
+     * @param $previousHash
+     * @param $timestamp
+     * @param $data
+     */
     public function __construct($index, $previousHash, $timestamp, $data)
     {
         $this->index = $index;
@@ -20,56 +35,57 @@ class Block
         $this->data = $data;
     }
 
+    /**
+     * @return string
+     */
     public function getHash(){
-
         return hash('sha256', json_encode(get_object_vars($this)));
-
     }
 
     /**
-     * @return mixed
+     * @return int
      */
-    public function getIndex()
+    public function getIndex(): int
     {
         return $this->index;
     }
 
     /**
-     * @param mixed $index
+     * @param int $index
      */
-    public function setIndex($index)
+    public function setIndex(int $index)
     {
         $this->index = $index;
     }
 
     /**
-     * @return mixed
+     * @return string
      */
-    public function getPreviousHash()
+    public function getPreviousHash(): string
     {
         return $this->previousHash;
     }
 
     /**
-     * @param mixed $previousHash
+     * @param string $previousHash
      */
-    public function setPreviousHash($previousHash)
+    public function setPreviousHash(string $previousHash)
     {
         $this->previousHash = $previousHash;
     }
 
     /**
-     * @return mixed
+     * @return int
      */
-    public function getTimestamp()
+    public function getTimestamp(): int
     {
         return $this->timestamp;
     }
 
     /**
-     * @param mixed $timestamp
+     * @param int $timestamp
      */
-    public function setTimestamp($timestamp)
+    public function setTimestamp(int $timestamp)
     {
         $this->timestamp = $timestamp;
     }
@@ -89,6 +105,5 @@ class Block
     {
         $this->data = $data;
     }
-
 
 }
