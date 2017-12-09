@@ -47,4 +47,19 @@ class ChainTest extends TestCase
         $this->assertFalse($chain->isValid());
     }
 
+    public function testChangedBlockChain(){
+        $chain = new \Blockchain\Chain();
+
+        $firstBlock = new \Blockchain\Block(0, null, time(), 'Example data 1');
+        $chain->addBlock($firstBlock);
+
+        $secondBlock = new \Blockchain\Block(1, $firstBlock->getHash(), time(), 'Example data 2');
+        $chain->addBlock($secondBlock);
+
+        $firstBlock->setData('Changed data');
+
+        $this->assertFalse($chain->isValid());
+    }
+
+
 }
