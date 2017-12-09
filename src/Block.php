@@ -22,8 +22,32 @@ class Block
 
     public function getHash(){
 
-        return hash('sha256',json_encode($this));
+        return hash('sha256', json_encode(get_object_vars($this)));
 
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIndex()
+    {
+        return $this->index;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTimestamp()
+    {
+        return $this->timestamp;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getData()
+    {
+        return $this->data;
     }
 
     /**
